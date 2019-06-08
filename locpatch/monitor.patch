@@ -1,0 +1,75 @@
+# ----------------------------------------
+# PATCH: Secondary Monitor
+# ----------------------------------------
+# define secondary monitor
+set $secondary HDMI-1
+
+# define secondary workspaces
+set $ws21  "21[21: >_ ]"
+set $ws22  "22[22: >_ ]"
+set $ws23  "23[23: >_ ]"
+set $ws24  "24[24: >_ ]"
+set $ws25  "25[25: >_ ]"
+set $ws26  "26[26: >_ ]"
+set $ws27  "27[27: >_ ]"
+set $ws28  "28[28: >_ ]"
+set $ws29  "29[29: >_ ]"
+set $ws30  "30[30: >_ ]"
+
+# switch to secondary workspaces (control)
+bindsym $mod+Control+1 workspace $ws21
+bindsym $mod+Control+2 workspace $ws22
+bindsym $mod+Control+3 workspace $ws23
+bindsym $mod+Control+4 workspace $ws24
+bindsym $mod+Control+5 workspace $ws25
+bindsym $mod+Control+6 workspace $ws26
+bindsym $mod+Control+7 workspace $ws27
+bindsym $mod+Control+8 workspace $ws28
+bindsym $mod+Control+9 workspace $ws29
+bindsym $mod+Control+0 workspace $ws30
+
+# move focused container to secondary workspace
+bindsym $mod+Control+Shift+1 move container to workspace $ws21
+bindsym $mod+Control+Shift+2 move container to workspace $ws22
+bindsym $mod+Control+Shift+3 move container to workspace $ws23
+bindsym $mod+Control+Shift+4 move container to workspace $ws24
+bindsym $mod+Control+Shift+5 move container to workspace $ws25
+bindsym $mod+Control+Shift+6 move container to workspace $ws26
+bindsym $mod+Control+Shift+7 move container to workspace $ws27
+bindsym $mod+Control+Shift+8 move container to workspace $ws28
+bindsym $mod+Control+Shift+9 move container to workspace $ws29
+bindsym $mod+Control+Shift+0 move container to workspace $ws30
+
+# sepcify output for all workspaces
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output primary
+workspace $ws7 output primary
+workspace $ws8 output primary
+workspace $ws9 output primary
+workspace $ws10 output primary
+workspace $ws11 output primary
+workspace $ws12 output primary
+workspace $ws13 output primary
+workspace $ws14 output primary
+workspace $ws15 output primary
+workspace $ws16 output primary
+workspace $ws17 output primary
+workspace $ws18 output primary
+workspace $ws19 output primary
+workspace $ws20 output primary
+
+workspace $ws20 output $secondary
+workspace $ws21 output $secondary
+workspace $ws22 output $secondary
+workspace $ws23 output $secondary
+workspace $ws24 output $secondary
+workspace $ws25 output $secondary
+workspace $ws26 output $secondary
+workspace $ws27 output $secondary
+workspace $ws28 output $secondary
+workspace $ws29 output $secondary
+workspace $ws30 output $secondary
