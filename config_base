@@ -1,0 +1,375 @@
+# This file has is based on the auto-generated config by i3-config-wizard(1).
+#r
+# Created by mmROCUL
+#
+# --------------------------------------------------- DEPENDENCIES <
+# Can be found on https://github.com/ltOgt/.bash/tree/master/scripts
+#
+# <- prompt
+# 	:  To ask for wallpaper and color reset
+# 	// https://github.com/ltOgt/.bash/tree/master/scripts/prompt )
+#   <- dmenu
+# <- bgswap
+# 	:  To easily swap wallpapers and color profiles
+# 	// https://github.com/ltOgt/bgswap
+#   <- pywal
+# <- volume_control
+# 	:  To handle volume for multiple output devices
+# 	// https://github.com/ltOgt/.bash/tree/master/scripts/volume_control
+#   <- pactl
+#   <- alsa
+# --------------------------------------------------- DEPENDENCIES >
+
+
+# --------------------------------------------------- BASE SETTINGS <
+# Font for window titles.
+#   Will also be used by the bar.
+#   Unless a different font is used in the bar {} block below.
+font pango:monospace 8
+
+
+
+# The i3 Hotkey
+# Windows-Key
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows (see below) to their wanted position
+floating_modifier $mod
+
+
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace
+# (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+
+# Toggle tiling / floating
+# ("Pop-Out" selected window)
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+
+
+# Resize window
+#   (you can also use the mouse for that)
+# These bindings trigger as soon as you enter the resize mode
+mode "resize" {
+	# [vim-keys]
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+
+	# [arrow-keys]
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	# Back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+
+# Change focus
+# [vim-keys]
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
+
+# Change focus
+# [arrow-keys]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+# [vim-keys]
+#bindsym $mod+Shift+h move left
+#bindsym $mod+Shift+j move down
+#bindsym $mod+Shift+k move up
+#bindsym $mod+Shift+l move right
+
+# Move focused window
+# [arrow-keys]
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+
+
+# Split container horizontally
+# (Open new window right to current)
+bindsym $mod+h split h
+
+# Split container vertically
+# (Open new window below current)
+bindsym $mod+v split v
+
+
+
+# Toggle between layouts
+#   I never use this
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+
+
+# Toggle fullscreen for focused window
+#   Default is mod+f, but feels more like ctrl+f
+#   Since mod+d (dmenu) performs "search" -> switch binds
+bindsym $mod+d fullscreen toggle
+# --------------------------------------------------- BASE SETTINGS >
+
+
+
+
+
+# --------------------------------------------------- PROGRAM LAUNCHER <
+# Launch programs with dmenu
+#   dmenu can also be interated into programs
+#   => Options / Selection trough "search" bar
+bindsym $mod+f exec dmenu_run
+
+
+
+# Start a terminal
+bindsym $mod+Return exec urxvt
+# --------------------------------------------------- PROGRAM LAUNCHER >
+
+
+
+
+
+# --------------------------------------------------- WORKSPACE SET-UP <
+# Cycle through workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+
+
+# Define workspace names
+#   Leading numbers will not be rendered
+#   Used only for ordering
+#   See <strip_workspace_numbers yes> in <bar{...}>
+set $ws1  "1[1: >_ ]"
+set $ws2  "2[2: Home  ]"
+set $ws3  "3[3: Web  ]"
+set $ws4  "4[4: >_ ]"
+set $ws5  "5[5: Trello  ]"
+set $ws6  "6[6: >_ ]"
+set $ws7  "7[7: >_ ]"
+set $ws8  "8[8: >_ ]"
+set $ws9  "9[9: >_ ]"
+set $ws10 "10[10: >_ ]"
+set $ws11 "11[11: SoundCloud  ]"
+set $ws12 "12[12: Telegram  ]"
+set $ws13 "13[13: Keep  ]"
+set $ws14 "14[14: >_ ]"
+set $ws15 "15[15: Network  ]"
+set $ws16 "16[16: >_ ]"
+set $ws17 "17[17: >_ ]"
+set $ws18 "18[18: >>__ ]"
+set $ws19 "19[19:    ]"
+set $ws20 "20[20: >_ ]"
+
+
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Switch to extended workspaces
+#   (mod1=alt)
+bindsym $mod+Mod1+1 workspace $ws11
+bindsym $mod+Mod1+2 workspace $ws12
+bindsym $mod+Mod1+3 workspace $ws13
+bindsym $mod+Mod1+4 workspace $ws14
+bindsym $mod+Mod1+5 workspace $ws15
+bindsym $mod+Mod1+6 workspace $ws16
+bindsym $mod+Mod1+7 workspace $ws17
+bindsym $mod+Mod1+8 workspace $ws18
+bindsym $mod+Mod1+9 workspace $ws19
+bindsym $mod+Mod1+0 workspace $ws20
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+#
+# Move focused container to extended workspace
+#	(mod1=alt)
+bindsym $mod+Mod1+Shift+1 move container to workspace $ws11
+bindsym $mod+Mod1+Shift+2 move container to workspace $ws12
+bindsym $mod+Mod1+Shift+3 move container to workspace $ws13
+bindsym $mod+Mod1+Shift+4 move container to workspace $ws14
+bindsym $mod+Mod1+Shift+5 move container to workspace $ws15
+bindsym $mod+Mod1+Shift+6 move container to workspace $ws16
+bindsym $mod+Mod1+Shift+7 move container to workspace $ws17
+bindsym $mod+Mod1+Shift+8 move container to workspace $ws18
+bindsym $mod+Mod1+Shift+9 move container to workspace $ws19
+bindsym $mod+Mod1+Shift+0 move container to workspace $ws20
+# --------------------------------------------------- WORKSPACE SET-UP >
+
+
+
+
+
+# --------------------------------------------------- WINDOW COLORS <
+# Define colors
+set $bg				#222222
+set $inactive-bg	#333333
+set $text			#EEEEEE
+set $inactive-text	#CCCCCC
+set $urgent-bg		#E53935
+
+# Assign colors to window types
+#   Window-Type          	border-color    background-col. text-color
+	client.focused			$bg             $bg             $text
+	client.unfocused		$inactive-bg    $inactive-bg    $inactive-text
+	client.focused_inactive $inactive-bg	$inactive-bg    $inactive-text
+	client.urgent			$urgent-bg      $urgent-bg      $text
+# --------------------------------------------------- WINDOW COLORS >
+
+
+
+
+
+# --------------------------------------------------- STATUS BAR <
+# Start i3blocks
+# (See)
+# finds out, if available)
+set $bar_height 20
+bar {
+	# Lauch i3blocks with custom config
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+	position top
+	height $bar_height
+
+	strip_workspace_numbers yes
+
+	font pango:monospace 8, FontAwesome 8
+	colors{
+		background #333333
+		#name				border			background		text
+		focused_workspace	$bg				$bg				$text
+		inactive_workspace	$inactive-bg	$inactive-bg	$inactive-text
+		urgent_workspace	$urgent-bg		$urgent-bg		$text
+	}
+}
+# See https://github.com/ltOgt/.bash/blob/master/scripts/i3blocks/custom_time
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down $bar_height px
+# --------------------------------------------------- STATUS BAR >
+
+
+
+
+
+# --------------------------------------------------- MEDIA BINDS <
+# Set active audiodevice
+set_from_resource $user echo "$USER
+
+# Define Pulse Audio controls
+set $a_rv XF86AudioRaiseVolume
+set $a_lv XF86AudioLowerVolume
+set $a_mv XF86AudioMute
+
+# Custom Script to choose output device
+# increase sound volume
+bindsym $a_rv 				exec --no-startup-id volume_control + 5
+bindsym Control+$a_rv 		exec --no-startup-id volume_control + 1
+# decrease sound volume
+bindsym $a_lv 				exec --no-startup-id volume_control - 5
+bindsym Control+$a_lv 		exec --no-startup-id volume_control - 1
+# mute
+bindsym $a_mv 				exec --no-startup-id volume_control mute
+# select device
+bindsym $mod+a				exec --no-startup-id volume_control sink
+
+
+
+# Screen brightness controls
+set $b_rb XF86MonBrightnessUp
+set $b_lb XF86MonBrightnessDown
+bindsym $b_rb 					exec brightness + 10
+bindsym $b_lb 					exec brightness - 10
+
+
+
+# Screenshot whole / selection of screen
+bindsym $mod+p exec shutter -f -e -o '~/Pictures/Screenshots/%Y%m%d%T_screenshot_full.png'
+bindsym $mod+Shift+p exec shutter -s -e -o '~/Pictures/Screenshots/%Y%m%d%T_screenshot_sel.png'
+#IMCA
+bindsym $mod+Shift+o exec shutter -s -e -o '/home/omni/repos/imca/gen/'$(dmenu -p "name")'.png'
+# --------------------------------------------------- MEDIA BINDS >
+
+
+
+
+
+# --------------------------------------------------- FLOATING TERMINAL <
+#new floating terminal in center [Win+Shift+Enter]
+exec_always --no-startup-id urxvt -name "f_mid"
+for_window [instance="f_mid"] move scratchpad
+bindsym $mod+Shift+Return [instance="f_mid"] scratchpad show
+
+exec_always --no-startup-id urxvt -name "f_top"
+for_window [instance="f_top"] move scratchpad
+bindsym $mod+Shift+Return [instance="f_top"] scratchpad show
+
+#Move focused to scratch pad
+bindsym $mod+Shift+minus move scratchpad
+#toggle scratchpad
+bindsym $mod+minus scratchpad show
+# --------------------------------------------------- FLOATING TERMINAL >
+
+
+# nm-applet on startup (lives in tray)
+exec --no-startup-id nm-applet
+# got on startup
+exec urxvt -e sh -c "source ~/.bashrc && got -s && read -p 'Press ENTER to close' dummy"
+
+#set wallpaper
+#exec_always [ $(echo "y\nn" | dmenu -p "reset bg?") == "y" ] && feh --bg-scale $default_wallpaper
+bindsym $mod+m exec bgswap --next
+bindsym $mod+n exec bgswap --prev
+
+# Set background on first start up
+exec bgswap -r
