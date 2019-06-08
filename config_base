@@ -346,13 +346,13 @@ bindsym $mod+Shift+o exec shutter -s -e -o '/home/omni/repos/imca/gen/'$(dmenu -
 
 # --------------------------------------------------- FLOATING TERMINAL <
 #new floating terminal in center [Win+Shift+Enter]
-exec_always --no-startup-id urxvt -name "f_mid"
+exec --no-startup-id urxvt -name "f_mid"
 for_window [instance="f_mid"] move scratchpad
 bindsym $mod+Shift+Return [instance="f_mid"] scratchpad show
 
-exec_always --no-startup-id urxvt -name "f_top"
+exec --no-startup-id urxvt -name "f_top"
 for_window [instance="f_top"] move scratchpad
-bindsym $mod+Shift+Return [instance="f_top"] scratchpad show
+bindsym $mod+Shift+mod1+Return [instance="f_top"] scratchpad show
 
 #Move focused to scratch pad
 bindsym $mod+Shift+minus move scratchpad
