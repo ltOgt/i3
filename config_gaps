@@ -1,0 +1,28 @@
+
+#============================================================
+#    GAPS
+#============================================================
+
+# Disable titlebars; otherwise bg not drawn properly
+for_window [class="^.*"] border pixel 3
+
+gaps inner 15
+gaps outer 5
+
+
+# Resize gaps
+bindsym $mod+g 			gaps inner all plus 5;  gaps outer all plus 5
+bindsym $mod+Shift+g 	gaps inner all minus 5; gaps outer all minus 5
+
+
+# Overwrite bordercolors for active window when using gaps
+set $gaps_bg 	#000000
+
+client.focused  $gaps_bg    $gaps_bg        $text
+#name			border		background      text
+
+
+# Gaps related auto-start
+# exec_always --no-startup-id compton -b
+# compton causes trouble when in autostart
+#exec --no-startup-id compton -b
