@@ -62,17 +62,20 @@ bindsym $mod+space focus mode_toggle
 # Resize window
 #   (you can also use the mouse for that)
 # These bindings trigger as soon as you enter the resize mode
+
+set $largeIncrease 10
+set $smallIncrease 5
 mode "resize" {
 	# [vim-keys]
-	bindsym h resize shrink width 10 px or 10 ppt
-	bindsym j resize grow height 10 px or 10 ppt
-	bindsym k resize shrink height 10 px or 10 ppt
-	bindsym l resize grow width 10 px or 10 ppt
+	bindsym h resize shrink width $smallIncrease px or $smallIncrease ppt
+	bindsym j resize grow height $smallIncrease px or $smallIncrease ppt
+	bindsym k resize shrink height $smallIncrease px or $smallIncrease ppt
+	bindsym l resize grow width $smallIncrease px or $smallIncrease ppt
 
 	# [arrow-keys]
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Left resize shrink width $largeIncrease px or $largeIncrease ppt
+	bindsym Down resize grow height $largeIncrease px or $largeIncrease ppt
+	bindsym Up resize shrink height $largeIncrease px or $largeIncrease ppt
 	bindsym Right resize grow width 10 px or 10 ppt
 
 	# Back to normal: Enter or Escape
@@ -167,6 +170,8 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev
 
 
 # Define workspace names
@@ -281,7 +286,7 @@ bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
 	position top
-	height $bar_height
+	#height $bar_height
 
 	strip_workspace_numbers yes
 
@@ -373,3 +378,6 @@ bindsym $mod+n exec bgswap --prev
 
 # Set background on first start up
 exec bgswap -r
+
+# Setup mousepad on first startup
+exec setup_keyboard # function in .bash/device_specific.bash
