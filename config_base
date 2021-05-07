@@ -178,8 +178,8 @@ bindsym $mod+Control+Left workspace prev
 #   Leading numbers will not be rendered
 #   Used only for ordering
 #   See <strip_workspace_numbers yes> in <bar{...}>
-set $ws1  "1[1: >_ ]"
-set $ws2  "2[2: Home  ]"
+set $ws1  "1[1: Code {} ]"
+set $ws2  "2[2: >_ ]"
 set $ws3  "3[3: Web  ]"
 set $ws4  "4[4: >_ ]"
 set $ws5  "5[5: Trello  ]"
@@ -195,7 +195,7 @@ set $ws14 "14[14: >_ ]"
 set $ws15 "15[15: Network  ]"
 set $ws16 "16[16: >_ ]"
 set $ws17 "17[17: >_ ]"
-set $ws18 "18[18: >>__ ]"
+set $ws18 "18[18: >_ ]"
 set $ws19 "19[19:    ]"
 set $ws20 "20[20: >_ ]"
 
@@ -381,3 +381,10 @@ exec bgswap -r
 
 # Setup mousepad on first startup
 exec setup_keyboard # function in .bash/device_specific.bash
+
+# connect msecond monitor
+exec aocon
+
+# switch focus to other monitor
+# windows + alt + left arrow
+#bindsym $mod+$mod1+Left focus output let
